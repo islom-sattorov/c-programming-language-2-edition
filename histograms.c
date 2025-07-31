@@ -32,14 +32,18 @@ void horizontal_histogram(int array[], int *size) {
 }
 
 int find_max(int array[], int *size) {
-  int greaterArrIdx = 0;
-  for(int i = 0; i < *size; i++) {
-    if(array[greaterArrIdx] < array[i]) {
-      greaterArrIdx = array[i];
+  if (*size < 1) {
+    return -1;
+  }
+
+  int greaterArrItem = array[0];
+  for(int i = 1; i < *size; i++) {
+    if(greaterArrItem < array[i]) {
+      greaterArrItem = array[i];
     }
   }
 
-  return greaterArrIdx;
+  return greaterArrItem;
 }
 
 void vertical_histogram_old(int array[], int *size) {
@@ -104,32 +108,33 @@ int find_element(int array[], int *size, int target) {
 
 int main() {
   // Logic 2
-  int c;
+  // int c;
 
-  int elems[30];
-  int ndigit[30];
-  int n = 30;
+  // int elems[30];
+  // int ndigit[30];
+  // int n = 30;
 
-  int i = 0;
+  // int i = 0;
 
-  while ((c = getchar()) != EOF) {
-    int isFinded = find_element(elems, &n, putchar(c));
+  // while ((c = getchar()) != EOF) {
+  //   int isFinded = find_element(elems, &n, putchar(c));
 
-    if(isFinded == 0) {
-      elems[i] = putchar(c);
-      ndigit[i] = 1;
-      i = i + 1;
-    }else {
-      ndigit[isFinded] = ++ndigit[isFinded];
-    }
-  }
-  vertical_histogram(ndigit, &n);
+  //   if(isFinded == 0) {
+  //     elems[i] = putchar(c);
+  //     ndigit[i] = 1;
+  //     i = i + 1;
+  //   }else {
+  //     ndigit[isFinded] = ++ndigit[isFinded];
+  //   }
+  // }
+  // vertical_histogram(ndigit, &n);
 
   // Logic 2
-  // int ndigit[] = {2, 3, 9, 1, 2, 9, 8, 7 ,6, 4};
-  // int n = sizeof(ndigit) / sizeof(ndigit[0]);
-  // print_array(ndigit, &n);
+  int ndigit[] = {2, 3, 9, 1, 2, 9, 8, 7 ,6, 4};
+  int n = sizeof(ndigit) / sizeof(ndigit[0]);
+  print_array(ndigit, &n);
   // horizontal_histogram(ndigit, &n);
+  vertical_histogram(ndigit, &n);
 
   return 0;
 }
