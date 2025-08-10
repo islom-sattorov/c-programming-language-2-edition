@@ -29,9 +29,9 @@ double fahrenheitToCelsius(int fahr) {
 
 // power: raise base to n-th power; n >= 0
 int power(int base, int n){
-  int p = 1;
+  int p;
 
-  for(int i = 1; i <= n; ++i) {
+  for(p = 1; n > 0; --n) {
     p = p * base;
   }
 
