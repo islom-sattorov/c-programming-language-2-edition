@@ -17,7 +17,7 @@ void celsiusToFahr(const char *title) {
   printf("%s: \n", title);
 
   while(celsius <= upper) {
-    fahr = (celsius * 9.0 / 5.0) + 32;;
+    fahr = (celsius * 9.0 / 5.0) + 32;
     printf("Celsius: %3.0f\t Fahrenheit: %6.1f\n", celsius, fahr);
     celsius = celsius + step;
   }
