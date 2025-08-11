@@ -1,5 +1,9 @@
 # c-programming-language-2-edition
 
+## Compile programm
+
+% gcc -std=c11 -Wall -Wextra -o name-of-binary file-name.c
+
 ## 📜 Форматные спецификаторы в C (`printf` / `scanf`)
 
 | Спецификатор | Тип данных                    | Пример использования                                        |
