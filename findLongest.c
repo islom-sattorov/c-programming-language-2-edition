@@ -41,15 +41,16 @@ int getLine(char s[], int lim) {
   int maxLen = 0;
 
   while((c = getchar()) != EOF && c != '\n'){
-    if(i < lim - 1) {
-      s[i] = c;
-      ++i;
+    if(i < lim - 1 && c != '\t' && c != ' ') {
+        s[i] = c;
+        ++i;
     }
+
     ++maxLen;
   }
 
   if(c == '\n'){
-     s[i] = c;
+    s[i] = c;
     ++i;
   }
 
