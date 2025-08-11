@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 #define MAXLINE 1000
+#define MINLINE 80
 
 int getLine(char line[], int maxline);
 void copy(char to[], char from[]);
@@ -23,6 +24,10 @@ int main (){
     if(max > 0){ // there was a line
       printf("Length: %d \n", max);
       printf("Word: %s \n", longest);
+    }
+
+    if(max >= 80){
+      printf("Line is longer than 80 characters \n");
     }
   }
 
