@@ -12,6 +12,7 @@ int main (){
   int max; // maximum length seen so far
   char line[MAXLINE]; // current input line
   char longest[MAXLINE]; // longest line saved here
+  char reversed[MAXLINE]; // reversed line saved here
 
   max = 0;
 
@@ -19,11 +20,13 @@ int main (){
     if(len > max){
       max = len;
       copy(longest, line);
+      reverse(reversed, longest, max);
     }
 
     if(max > 0){ // there was a line
       printf("Length: %d \n", max);
-      printf("Word: %s \n", longest);
+      printf("Original Word: %s \n", longest);
+      printf("Reversed word: %s \n", reversed);
     }
 
     if(max >= 80){
@@ -32,6 +35,16 @@ int main (){
   }
 
   return 0;
+}
+
+void reverse(char to[], char from[], int len) {
+  int j = len;
+  int i = 0;
+
+  while ((to[i] = from[j]) != '\0') {
+    --j;
+    i++;
+  }
 }
 
 // getLine: read a line into s, return length
