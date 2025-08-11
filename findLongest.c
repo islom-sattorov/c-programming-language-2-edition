@@ -46,7 +46,9 @@ int getLine(char s[], int lim) {
         ++i;
     }
 
-    ++maxLen;
+    if(c != '\t' && c != ' '){
+      ++maxLen;
+    }
   }
 
   if(c == '\n'){
