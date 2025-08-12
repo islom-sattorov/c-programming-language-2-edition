@@ -40,6 +40,10 @@
 
 ## Formulas
 
+### Формула остатка целочисленного деления:
+
+a % b = a - b \* floor(a / b)
+
 ### From fahrenheit to celsius
 
 C = 5 / 9 \* (F - 32)
