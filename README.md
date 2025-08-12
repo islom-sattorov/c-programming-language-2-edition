@@ -54,5 +54,13 @@ F = 9 / 5 \* C + 32
 
 ### Skipped
 
-Exercise 1-23. Write a program to remove all comments from a C program. Don't forget to handle quoted strings and character constants properly. C comments don't nest.
-Exercise 1-24. Write a program to check a C program for rudimentary syntax errors like unmatched parentheses, brackets and braces. Don't forget about quotes, both single and double, escape sequences, and comments. (This program is hard if you do it in full generality.)
+#### Exercise 1-23. (State machine)
+
+- Write a program to remove all comments from a C program.
+  Don't forget to handle quoted strings and character constants properly. C comments don't nest.
+
+#### Exercise 1-24. (Parser)
+
+- Write a program to check a C program for rudimentary syntax errors like unmatched parentheses,
+  brackets and braces. Don't forget about quotes, both single and double, escape sequences, and comments.
+  (This program is hard if you do it in full generality.)
