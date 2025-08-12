@@ -10,8 +10,8 @@ int main() {
   int len;
   char line[MAXCHARACTER];
 
-  while((len = getLine(line, MAXCHARACTER)) > 0) {
-     printf("Detabed line: %s \n", line);
+  while ((len = getLine(line, MAXCHARACTER)) > 0) {
+    printf("Detabed line: %s \n", line);
   }
 
   return 0;
@@ -20,7 +20,7 @@ int main() {
 int detab(char line[], int idx) {
   int spaces = TABSPACE - (idx % TABSPACE);
 
-  while(spaces-- > 0) {
+  while (spaces-- > 0) {
     line[idx++] = ' ';
   }
 
@@ -31,15 +31,15 @@ int getLine(char s[], int lim) {
   int c;
   int i = 0;
 
-  for(; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; ++i) {
-    if(c == '\t') {
-     i = detab(s, i) - 1;
-    }else {
+  for (; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; ++i) {
+    if (c == '\t') {
+      i = detab(s, i) - 1;
+    } else {
       s[i] = c;
     }
   }
 
-  if(c == '\n'){
+  if (c == '\n') {
     s[i++] = c;
   }
 

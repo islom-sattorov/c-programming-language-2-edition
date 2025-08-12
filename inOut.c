@@ -30,7 +30,6 @@
 //   return 0;
 // }
 
-
 // Character and symbols counting
 // int main() {
 //   int c, nl, tb, bl;
@@ -64,14 +63,11 @@
 //       putchar(c);
 //     }
 
-
-
 //     if(c == ' '){
 //       isPrevBlank = true;
 //     }else {
 //       isPrevBlank = false;
 //     }
-
 
 //     printf("\t New lines count: %d\n", nl);
 //     printf("\t Tabs count: %d\n", tb);
@@ -83,7 +79,7 @@
 
 // character, word counting
 
-#define IN 1 /* inside a word */
+#define IN 1  /* inside a word */
 #define OUT 0 /* outside a word */
 
 // Count lines, words and characters in input
@@ -93,14 +89,14 @@ int main() {
   state = OUT;
   nl = nw = nc = 0;
 
-  while((c = getchar()) != EOF ) {
+  while ((c = getchar()) != EOF) {
     ++nc;
-    if(c == '\n')
+    if (c == '\n')
       ++nl;
 
-    if(c == ' ' || c == '\n' || c == '\t'){
+    if (c == ' ' || c == '\n' || c == '\t') {
       state = OUT;
-    }else if(state == OUT) {
+    } else if (state == OUT) {
       state = IN;
       ++nw;
     }

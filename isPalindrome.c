@@ -11,13 +11,14 @@ int main() {
 }
 
 int isPalindrome(int x) {
-  if(x < 0) return false;
+  if (x < 0)
+    return false;
 
   int original = x;
   printf("original: %d\n", original);
   int reversed = 0;
 
-  while(x != 0) {
+  while (x != 0) {
     int digit = x % 10;
     printf("digit: %d\n", digit);
     reversed = reversed * 10 + digit;

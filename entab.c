@@ -4,7 +4,6 @@
 #define MAXCHARACTER 1000
 #define TABSPACE 7
 
-
 int getLine(char line[], int maxline);
 int entab(char line[], int idx, int blankCount);
 
@@ -12,8 +11,8 @@ int main() {
   int len;
   char line[MAXCHARACTER];
 
-  while((len = getLine(line, MAXCHARACTER)) > 0) {
-     printf("%s\n", line);
+  while ((len = getLine(line, MAXCHARACTER)) > 0) {
+    printf("%s\n", line);
   }
 
   return 0;
@@ -23,13 +22,13 @@ int entab(char line[], int idx, int blankCount) {
   int startIdx = idx - blankCount;
 
   while (blankCount >= TABSPACE) {
-       line[startIdx++] = '\t';
-       blankCount -= TABSPACE;
+    line[startIdx++] = '\t';
+    blankCount -= TABSPACE;
   }
 
-  while(blankCount > 0) {
-       line[startIdx++] = ' ';
-       blankCount--;
+  while (blankCount > 0) {
+    line[startIdx++] = ' ';
+    blankCount--;
   }
 
   return startIdx;
@@ -41,11 +40,11 @@ int getLine(char s[], int lim) {
 
   int blankCount = 0;
 
-  for(; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; ++i) {
-    if(c == ' ') {
+  for (; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; ++i) {
+    if (c == ' ') {
       blankCount++;
-    }else {
-      if(blankCount > 0) {
+    } else {
+      if (blankCount > 0) {
         i = entab(s, i, blankCount);
         blankCount = 0;
       }
@@ -53,7 +52,7 @@ int getLine(char s[], int lim) {
     }
   }
 
-  if(c == '\n'){
+  if (c == '\n') {
     s[i++] = c;
   }
 
