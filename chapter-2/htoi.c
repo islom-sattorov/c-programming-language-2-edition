@@ -5,10 +5,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-int htoi(char n[], int len);
-
-enum { A = 10, B, C, D, E, F };
-
 // Test
 // 0x1A     // 26
 // 0xFF     // 255
@@ -23,15 +19,66 @@ enum { A = 10, B, C, D, E, F };
 // Для этого hex нужно поменять тип int на long
 // 0xCAFEBABE // 3405691582
 
+int htoi(const char s[]);
+int non_opt_htoi(char n[], int len);
+
+enum { A = 10, B, C, D, E, F };
+
 int main() {
   char test1[] = "0x1A";
-  int len = strlen(test1);
-  printf("\n %d", htoi(test1, len));
+  printf("\n Test 1: %d", htoi(test1));
+  char test2[] = "0xFF";
+  printf("\n Test 2: %d", htoi(test2));
+  char test3[] = "0x0B";
+  printf("\n Test 3: %d", htoi(test3));
+  char test4[] = "0x7F";
+  printf("\n Test 4: %d", htoi(test4));
+  char test5[] = "0x123";
+  printf("\n Test 5: %d", htoi(test5));
+  char test6[] = "0xABC";
+  printf("\n Test 6: %d", htoi(test6));
+  char test7[] = "0x0";
+  printf("\n Test 7: %d", htoi(test7));
+  char test8[] = "0xDEAD";
+  printf("\n Test 8: %d", htoi(test8));
+  char test9[] = "0xBEEF";
+  printf("\n Test 9: %d", htoi(test9));
+  char test10[] = "0xCAFEBABE";
+  printf("\n Test 10: %d", htoi(test10));
 
   return 0;
 }
 
-int htoi(char n[], int len) {
+int htoi(const char s[]) {
+  int i = 0;
+  int result = 0;
+
+  // Пропускаем префикс 0x или 0X
+  if (s[0] == '0' && (s[1] == 'x' || s[1] == 'X')) {
+    i = 2;
+  }
+
+  for (; s[i] != '\0'; i++) {
+    char c = s[i];
+    int val;
+
+    if (isdigit(c)) {
+      val = c - '0';
+    } else if (c >= 'a' && c <= 'f') {
+      val = c - 'a' + 10;
+    } else if (c >= 'A' && c <= 'F') {
+      val = c - 'A' + 10;
+    } else {
+      break; // если символ не hex
+    }
+
+    result = 16 * result + val;
+  }
+
+  return result;
+}
+
+int non_opt_htoi(char n[], int len) {
   int a = 0;
   int i = len - 1;
   int position = 0;
