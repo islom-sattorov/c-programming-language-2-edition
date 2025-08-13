@@ -40,6 +40,10 @@
 
 ## Formulas
 
+### Formula form ASCII to integer(atoi)
+
+n = 10 \* n + (s[i] - '0');
+
 ### Формула остатка целочисленного деления:
 
 a % b = a - b \* floor(a / b)
