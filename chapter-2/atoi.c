@@ -1,4 +1,5 @@
 
+#include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -15,7 +16,7 @@ int main() {
 int customAtoi(char s[]) {
   int n = 0;
 
-  for (int i = 0; s[i] > '0' && s[i] <= '9'; ++i) {
+  for (int i = 0; isdigit(s[i]); ++i) {
     // s[i] - '0' = возвращает числовое значение этой строки
     n = 10 * n + (s[i] - '0');
   }
